@@ -1,0 +1,126 @@
+{
+    "root": true,
+    "extends": ["koa", "eslint:recommended", "plugin:react/recommended"],
+    "parser": "@typescript-eslint/parser",
+    "plugins": ["@babel", "@typescript-eslint", "react", "mocha", "chai", "cypress"],
+    "parserOptions": {
+      "jsx": true
+    },
+    "rules": {
+      "react/react-in-jsx-scope": "off",
+      "react/jsx-uses-react": "error",
+      "react/jsx-uses-vars": "error",
+      "react/jsx-pascal-case": "error",
+      "react/jsx-max-props-per-line": [1, { "maximum": 1 }],
+      "react/jsx-first-prop-new-line": [1, "multiline"],
+      "react/jsx-closing-bracket-location": [1, "line-aligned"],
+      "dot-notation": "warn",
+      "new-cap": "off",
+      "@babel/new-cap": ["error", {
+        "newIsCapExceptions": ["model"]
+      }],
+      "semi": "off",
+      "@babel/semi": "error",
+      "no-prototype-builtins": "warn",
+      "no-console": "warn",
+      "camelcase": "off",
+      "max-len": ["error", {
+        "code": 5000,
+        "tabWidth": 2
+      }],
+      "object-property-newline": "off",
+      "no-trailing-spaces": ["error"],
+      "object-curly-spacing": ["error", "always"],
+      "array-bracket-spacing": ["error", "never"],
+      "array-bracket-newline": [
+        "error",
+        "consistent"
+      ],
+      "array-element-newline": [
+        "error",
+        "consistent"
+      ],
+      "quotes": ["error", "single"],
+      "comma-dangle": "off",
+      "generator-star-spacing": ["error", {"before": false, "after": true}],
+      "@typescript-eslint/no-unused-vars": ["error"],
+      "@typescript-eslint/naming-convention": [
+        "warn",
+        {
+          "selector": "variable",
+          "format": ["camelCase", "snake_case", "UPPER_CASE", "PascalCase"]
+        },
+        {
+          "selector": "memberLike",
+          "modifiers": ["private"],
+          "format": ["camelCase"],
+          "leadingUnderscore": "require"
+        },
+        {
+          "selector": "variableLike",
+          "format": ["camelCase"]
+        },
+        {
+          "selector": "typeLike",
+          "format": ["PascalCase"]
+        },
+        {
+          "selector": "enum",
+          "format": ["UPPER_CASE"]
+        },
+        {
+          "selector": "enumMember",
+          "format": ["UPPER_CASE"]
+        },
+        {
+          "selector": "class",
+          "format": ["PascalCase"]
+        },
+        {
+          "selector": "parameter",
+          "format": ["camelCase"],
+          "leadingUnderscore": "allow"
+        },
+        {
+          "selector": "function",
+          "format": ["camelCase"]
+        },
+        {
+          "selector": "interface",
+          "format": ["StrictPascalCase"],
+          "prefix": ["I"]
+        },
+        {
+          "selector": "typeParameter",
+          "format": ["PascalCase"],
+          "prefix": ["T"]
+        }
+      ]
+    },
+    "env": {
+      "browser": true,
+      "node": true
+    },
+    "overrides": [{
+      "files": ["cypress/**/*.ts"],
+      "env": {
+        "commonjs": true,
+        "node": true,
+        "mocha":true,
+        "cypress/globals": true
+      }
+    },{
+      "files": ["**/*.tsx"],
+      "rules": {
+        "@typescript-eslint/naming-convention": [
+          "error",
+          {
+            "selector": "variable",
+            "modifiers": ["const"],
+            "format": ["camelCase", "PascalCase"]
+          }
+        ]
+      }
+    }]
+  }
+  
