@@ -16,3 +16,15 @@ export function getSelectedPos(box: {pos: string, piece: string}[]) {
     return '';
   }
 }
+
+export function convertObjectKeyToString(obj: Object) {
+  let str: string = '';
+  Object.entries(obj).forEach(([key]) => str = key);
+  return str;
+}
+
+export function generateInputGroup(keys: string[]) {
+  const obj: any = [];
+  keys.map((key: any) => obj.push({ [key]: { value: '', isError: false, errorMessage: '', type: key == 'password' ? 'password' : 'text' } }));
+  return obj;
+}

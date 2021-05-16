@@ -292,6 +292,9 @@ module.exports = {
       },
       gridTemplateRows: {
         8: 'repeat(8, minmax(0, 1fr))'
+      },
+      outline: {
+        blue: ['0.5px solid #0065D290'],
       }
     }
   },
